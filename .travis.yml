@@ -15,13 +15,21 @@ before_script:
 - curl -s http://getcomposer.org/installer | php
 - php composer.phar install
 
-after_success:
-            - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-            - git remote add git@heroku.com:vast-anchorage-1004.git
-            - echo "Host heroku.com" >> ~/.ssh/config
-            - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-            - echo "   CheckHostIP no" >> ~/.ssh/config
-            - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-            - dannytowstyi@gmail.com | heroku keys:clear
-            - yes | heroku keys:add
-            - yes | git push heroku master
+after_script:
+  # Install the Heroku gem (or the Heroku toolbelt)
+  - gem install heroku
+  # Add your Heroku git repo:
+  - git remote add git@heroku.com:vast-anchorage-1004.git
+  # Add your Heroku API key:
+  - export HEROKU_API_KEY=FUCKYOUHEROKU
+  # Turn off warnings about SSH keys:
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  # Clear your current Heroku SSH keys:
+  - heroku keys:clear
+  # Add a new SSH key to Heroku
+  - yes | heroku keys:add
+  # Push to Heroku!
+  - yes | git push heroku master
