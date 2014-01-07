@@ -1,3 +1,6 @@
+env:
+  global:
+    - secure: fuckyouheroku
 
 language: php
 
@@ -11,3 +14,14 @@ php:
 before_script:
 - curl -s http://getcomposer.org/installer | php
 - php composer.phar install
+
+after_success:
+            - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+            - git remote add git@heroku.com:vast-anchorage-1004.git
+            - echo "Host heroku.com" >> ~/.ssh/config
+            - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+            - echo "   CheckHostIP no" >> ~/.ssh/config
+            - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+            - heroku keys:clear
+            - yes | heroku keys:add
+            - yes | git push heroku master
