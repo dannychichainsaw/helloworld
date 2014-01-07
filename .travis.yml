@@ -1,6 +1,3 @@
-env:
-  - BEHAT_PARAMS="formatter[name]=progress"
-
 language: php
 
 deploy:
@@ -9,11 +6,4 @@ deploy:
     secure: LWWjSzCAleFgwUKsyxDcTANKZHM9NAhR2pUBxrsl1HR870HgkkoPZggiGvhJFJ1GELC5/vu7RtoRR9MC9P9Q2CQS10YHqUp1YyzYQDdR1TXwVq6Bh/86lq5LfDH8I1KfOs2km03YM8MFLO4rKtqd/mFtUXnnj5QcuRElh9PgISw=
   app: vast-anchorage-1004
 
-php:
-  - 5.3
-script: ./bin/phpunit
-
-before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install
 
