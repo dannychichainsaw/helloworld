@@ -30,7 +30,7 @@
     "extra": {
         "heroku": {
             "document-root": "web",
-            "index-document": "app.php"
+            "index-document": "index.php"
         }
     }
 }
