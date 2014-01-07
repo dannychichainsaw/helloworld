@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "require": {
         "php":                 ">=5.3.0",
-	"silex/silex":         "1.0.x-dev",
+        "silex/silex":         "1.0.*@dev",
         "twig/twig":           "*",
         "symfony/config":      "2.1.*",
         "symfony/twig-bridge": "2.1.*",

@@ -11,3 +11,7 @@ before_script:
   - php composer.phar install
 
 script: php ./bin/behat
+
+deploy:
+  provider: heroku
+  api_key: "YOUR API KEY"
