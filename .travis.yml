@@ -28,8 +28,9 @@ after_script:
   - echo "   CheckHostIP no" >> ~/.ssh/config
   - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
   # Clear your current Heroku SSH keys:
-  - heroku keys:clear
+  #- heroku keys:clear
   # Add a new SSH key to Heroku
   - yes | heroku keys:add
   # Push to Heroku!
   - yes | git push heroku master
+  - for i in $(grep '[^\ ]*$' ~/.ssh/id_rsa.pub -o); do heroku keys:remove $i;done
