@@ -26,6 +26,8 @@ after_script:
   # Clear your current Heroku SSH keys:
   - heroku keys:clear
   # Add a new SSH key to Heroku
-  - yes | heroku keys:add
+  - yes | heroku keys:add]
+  - git add -A
+  - git commit
   # Push to Heroku!
   - yes | git push heroku master
