@@ -1,7 +1,3 @@
-env:
-
-- secure= "1u21hjnmHjkghduUIJhhs76saljlkajdlfhGhgdJgfaVtgasfLLmNBnb87dad="
-- BEHAT_PARAMS="formatter[name]=progress"
 
 language: php
 deploy:
@@ -10,24 +6,7 @@ deploy:
   provider: heroku
 php:
 - 5.3
-script: ./bin/phpunit
+
 before_script:
 - curl -s http://getcomposer.org/installer | php
 - php composer.phar install
-
-after_script:
-  # Install the Heroku gem (or the Heroku toolbelt)
-  - gem install heroku
-  # Add your Heroku git repo:
-  - git remote add heroku git@heroku.com:vast-anchorage-1004.git
-  # Turn off warnings about SSH keys:
-  - echo "Host heroku.com" >> ~/.ssh/config
-  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-  - echo "   CheckHostIP no" >> ~/.ssh/config
-  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-  # Clear your current Heroku SSH keys:
-  - heroku keys:clear
-  # Add a new SSH key to Heroku
-  - yes | heroku keys:add
-  # Push to Heroku!
-  - yes | git push heroku master
