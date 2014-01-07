@@ -12,3 +12,14 @@ deploy:
     secure: LWWjSzCAleFgwUKsyxDcTANKZHM9NAhR2pUBxrsl1HR870HgkkoPZggiGvhJFJ1GELC5/vu7RtoRR9MC9P9Q2CQS10YHqUp1YyzYQDdR1TXwVq6Bh/86lq5LfDH8I1KfOs2km03YM8MFLO4rKtqd/mFtUXnnj5QcuRElh9PgISw=
   provider: heroku
   app: vast-anchorage-1004
+
+after_success:
+            - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+            - git remote add heroku git@heroku.com:vast-anchorage-1004.git
+            - echo "Host heroku.com" >> ~/.ssh/config
+            - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+            - echo "   CheckHostIP no" >> ~/.ssh/config
+            - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+            - heroku keys:clear
+            - yes | heroku keys:add
+            - yes | git push heroku master
