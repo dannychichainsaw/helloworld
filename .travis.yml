@@ -1,17 +1,13 @@
+env: 
+- BEHAT_PARAMS="formatter[name]=progress"
 language: php
-
-php:
-  - 5.3
-
-env:
-  - BEHAT_PARAMS="formatter[name]=progress"
-
-before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install
-
-script: php ./bin/behat
-
-deploy:
+deploy: 
+  api_key: 
+    secure: LWWjSzCAleFgwUKsyxDcTANKZHM9NAhR2pUBxrsl1HR870HgkkoPZggiGvhJFJ1GELC5/vu7RtoRR9MC9P9Q2CQS10YHqUp1YyzYQDdR1TXwVq6Bh/86lq5LfDH8I1KfOs2km03YM8MFLO4rKtqd/mFtUXnnj5QcuRElh9PgISw=
   provider: heroku
-  api_key: "YOUR API KEY"
+php: 
+- 5.3
+script: php ./bin/behat
+before_script: 
+- curl -s http://getcomposer.org/installer | php
+- php composer.phar install
