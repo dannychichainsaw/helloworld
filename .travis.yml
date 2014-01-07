@@ -1,9 +1,5 @@
 language: php
 
-deploy:
-  provider: heroku
-  api_key: "YOUR API KEY"
-  app: vast-anchorage-1004
 php:
 - 5.3
 
@@ -11,23 +7,3 @@ before_script:
 - curl -s http://getcomposer.org/installer | php
 - php composer.phar install
 
-after_script:
-  # Install the Heroku gem (or the Heroku toolbelt)
-  - gem install heroku
-  # Add your Heroku git repo:
-  - git remote add heroku git@heroku.com:vast-anchorage-1004.git
-  # Add your Heroku API key:
-  - export HEROKU_API_KEY=63f5df69-a1ff-4d61-9264-eae3ef5254ea
-  # Turn off warnings about SSH keys:
-  - echo "Host heroku.com" >> ~/.ssh/config
-  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-  - echo "   CheckHostIP no" >> ~/.ssh/config
-  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-  # Clear your current Heroku SSH keys:
-  - heroku keys:clear
-  # Add a new SSH key to Heroku
-  - yes | heroku keys:add]
-  - git add -A
-  - git commit
-  # Push to Heroku!
-  - yes | git push heroku master
