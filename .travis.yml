@@ -1,6 +1,6 @@
 env:
-  global:
-    - secure: "1u21hjnmHjkghduUIJhhs76saljlkajdlfhGhgdJgfaVtgasfLLmNBnb87dad="
+
+- secure= "1u21hjnmHjkghduUIJhhs76saljlkajdlfhGhgdJgfaVtgasfLLmNBnb87dad="
 - BEHAT_PARAMS="formatter[name]=progress"
 
 language: php
