@@ -1,6 +1,6 @@
 env:
   global:
-    - secure: fuckyouheroku
+    - secure: "1u21hjnmHjkghduUIJhhs76saljlkajdlfhGhgdJgfaVtgasfLLmNBnb87dad="
 
 language: php
 
@@ -21,7 +21,7 @@ after_script:
   # Add your Heroku git repo:
   - git remote add git@heroku.com:vast-anchorage-1004.git
   # Add your Heroku API key:
-  - export HEROKU_API_KEY=FUCKYOUHEROKU
+  #- export HEROKU_API_KEY=FUCKYOUHEROKU
   # Turn off warnings about SSH keys:
   - echo "Host heroku.com" >> ~/.ssh/config
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
