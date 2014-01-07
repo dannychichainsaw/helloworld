@@ -1,3 +1,4 @@
+language: php
 
 deploy:
   api_key:
@@ -5,4 +6,6 @@ deploy:
   provider: heroku
   app: vast-anchorage-1004
 
+php:
+  - 5.3
 
