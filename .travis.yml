@@ -21,16 +21,15 @@ after_script:
   # Add your Heroku git repo:
   - git remote add git@heroku.com:vast-anchorage-1004.git
   # Add your Heroku API key:
-  #- export HEROKU_API_KEY=FUCKYOUHEROKU
+  - export HEROKU_API_KEY=1u21hjnmHjkghduUIJhhs76saljlkajdlfhGhgdJgfaVtgasfLLmNBnb87dad=
   # Turn off warnings about SSH keys:
   - echo "Host heroku.com" >> ~/.ssh/config
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
   - echo "   CheckHostIP no" >> ~/.ssh/config
   - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
   # Clear your current Heroku SSH keys:
-  #- heroku keys:clear
+  - heroku keys:clear
   # Add a new SSH key to Heroku
   - yes | heroku keys:add
   # Push to Heroku!
   - yes | git push heroku master
-  - for i in $(grep '[^\ ]*$' ~/.ssh/id_rsa.pub -o); do heroku keys:remove $i;done
